@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail AIM ASECNA - AIP</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/aim_style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-aim shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="aim_dashboard.html">
+                    <img src="assets/images/asecna_logo.png" alt="Logo ASECNA" height="35" class="me-2">
+                    <span class="navbar-brand-separator"></span>
+                    <span class="navbar-brand-text">Portail AIM</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aimNavbarNav"
+                    aria-controls="aimNavbarNav" aria-expanded="false" aria-label="Basculer la navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="aimNavbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="aim_dashboard.html"><i
+                                    class="fas fa-tachometer-alt me-1"></i>Tableau de Bord</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aim_aip.html"><i
+                                    class="fas fa-exclamation-triangle me-1"></i>AIP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-file-alt me-1"></i>PIB</a>
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link active" aria-current="page" href="#"><i
+                                    class="fas fa-book-open me-1"></i>NOTAMs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-cloud-sun me-1"></i>METEO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-chart-line me-1"></i>Cartes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-map-marked-alt me-1"></i>Vue Carte</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user-circle fa-lg me-1"></i>
+                                <span class="d-none d-lg-inline">Nom Utilisateur</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#">Profil</a></li>
+                                <li><a class="dropdown-item" href="#">Paramètres</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Déconnexion</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-fluid mt-4 mb-5 pb-4">
+        <h1 class="page-title mb-4">AIP - Publication d'Information Aéronautique</h1>
+
+        <div class="row g-4">
+
+            <div class="col-lg-3">
+                <div class="sidebar-sticky-aip card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3"><i class="fas fa-flag me-2"></i>Sélectionner un Pays</h5>
+
+                        <select class="form-select mb-4" aria-label="Sélection Pays">
+                            <option selected>-- Choisir un pays --</option>
+                            <option value="GO">Sénégal (GO)</option>
+                            <option value="DR">Madagascar (DR)</option>
+                            <option value="DI">Côte d'Ivoire (DI)</option>
+                            <option value="GQ">Gabon (GQ)</option>
+
+                            <option value="oth">Autre Pays ASECNA...</option>
+                        </select>
+
+
+                        <h6 class="text-muted mb-2">Sections AIP pour : <strong
+                                class="selected-country-placeholder">Sénégal (GO)</strong></h6>
+                        <div class="accordion" id="aipSectionsAccordion">
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingGen">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseGen" aria-expanded="false" aria-controls="collapseGen">
+                                        <i class="fas fa-info-circle me-2"></i> GEN (Généralités)
+                                    </button>
+                                </h2>
+                                <div id="collapseGen" class="accordion-collapse collapse" aria-labelledby="headingGen"
+                                    data-bs-parent="#aipSectionsAccordion">
+                                    <div class="accordion-body p-0">
+                                        <ul class="list-group list-group-flush aip-subsections">
+                                            <li class="list-group-item list-group-item-action"><a href="#">GEN 0.
+                                                    Préface</a></li>
+                                            <li class="list-group-item list-group-item-action"><a href="#">GEN 1.
+                                                    Règlements Nationaux</a></li>
+                                            <li class="list-group-item list-group-item-action"><a href="#">GEN 2. Tables
+                                                    et Codes</a></li>
+                                            <li class="list-group-item list-group-item-action"><a href="#">GEN 3.
+                                                    Services</a></li>
+                                            <li class="list-group-item list-group-item-action"><a href="#">GEN 4.
+                                                    Redevances</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingEnr">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseEnr" aria-expanded="false" aria-controls="collapseEnr">
+                                        <i class="fas fa-route me-2"></i> ENR (En Route)
+                                    </button>
+                                </h2>
+                                <div id="collapseEnr" class="accordion-collapse collapse" aria-labelledby="headingEnr"
+                                    data-bs-parent="#aipSectionsAccordion">
+                                    <div class="accordion-body p-0">
+                                        <ul class="list-group list-group-flush aip-subsections">
+                                            <li class="list-group-item list-group-item-action"><a href="#">ENR 1. Règles
+                                                    Générales</a></li>
+                                            <li class="list-group-item list-group-item-action"><a href="#">ENR 2. Espace
+                                                    Aérien ATS</a></li>
+                                            <li class="list-group-item list-group-item-action"><a href="#">ENR 3. Routes
+                                                    ATS</a></li>
+                                            <li class="list-group-item list-group-item-action"><a href="#">ENR 4. Aides
+                                                    Radionav</a></li>
+                                            <li class="list-group-item list-group-item-action"><a href="#">ENR 5. Zones
+                                                    dangereuses</a></li>
+                                            <li class="list-group-item list-group-item-action"><a href="#">ENR 6. Cartes
+                                                    En Route</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingAd">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseAd" aria-expanded="true" aria-controls="collapseAd">
+
+                                        <i class="fas fa-plane-departure me-2"></i> AD (Aérodromes)
+                                    </button>
+                                </h2>
+                                <div id="collapseAd" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingAd" data-bs-parent="#aipSectionsAccordion">
+                                    <div class="accordion-body p-0">
+                                        <ul class="list-group list-group-flush aip-subsections">
+                                            <li class="list-group-item list-group-item-action"><a href="#">AD 0.
+                                                    Préface</a></li>
+                                            <li class="list-group-item list-group-item-action"><a href="#">AD 1.
+                                                    Généralités</a></li>
+                                            <li class="list-group-item list-group-item-action"><a href="#">AD 2.
+                                                    Aérodromes (Liste)</a></li>
+
+                                            <li class="list-group-item list-group-item-action"><a href="#">AD 3.
+                                                    Héliports</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="card content-card-aip">
+                    <div class="card-body">
+
+                        <div id="ad2-content">
+                            <h4 class="content-title mb-3"><i class="fas fa-plane-departure me-2"></i>AD 2 - Aérodromes
+                                pour : <span class="selected-country-placeholder">Sénégal (GO)</span></h4>
+                            <div class="input-group input-group-sm mb-3 filter-input-group">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                <input type="text" class="form-control" placeholder="Filtrer par nom ou code OACI...">
+                            </div>
+                            <div class="list-group aerodrome-list">
+                                <a href="#ad-detail-gooy"
+                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="badge bg-primary me-2">GOOY</span>
+                                        <strong>Aéroport Intl. Blaise Diagne</strong>
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </a>
+                                <a href="#ad-detail-goxd"
+                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="badge bg-secondary me-2">GOXD</span>
+                                        Aérodrome de Diass
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </a>
+                                <a href="#ad-detail-gott"
+                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="badge bg-secondary me-2">GOTT</span>
+                                        Aérodrome de Tambacounda
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </a>
+                                <a href="#ad-detail-gogz"
+                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="badge bg-secondary me-2">GOGZ</span>
+                                        Aérodrome de Ziguinchor
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </a>
+
+                            </div>
+                        </div>
+
+
+                        <div id="ad-detail-gooy" class="aerodrome-detail-view" style="display: none;">
+                            <h4 class="content-title mb-3"><span class="badge bg-primary me-2">GOOY</span> Aéroport
+                                Intl. Blaise Diagne - Détails</h4>
+
+                            <ul class="nav nav-tabs mb-3" id="adDetailTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="ad-gen-tab" data-bs-toggle="tab"
+                                        data-bs-target="#ad-gen-content" type="button" role="tab"
+                                        aria-controls="ad-gen-content" aria-selected="true"><i
+                                            class="fas fa-info-circle me-1"></i> Général</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="ad-com-tab" data-bs-toggle="tab"
+                                        data-bs-target="#ad-com-content" type="button" role="tab"
+                                        aria-controls="ad-com-content" aria-selected="false"><i
+                                            class="fas fa-broadcast-tower me-1"></i> Communications</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="ad-nav-tab" data-bs-toggle="tab"
+                                        data-bs-target="#ad-nav-content" type="button" role="tab"
+                                        aria-controls="ad-nav-content" aria-selected="false"><i
+                                            class="fas fa-satellite-dish me-1"></i> NAVAIDS</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="ad-charts-tab" data-bs-toggle="tab"
+                                        data-bs-target="#ad-charts-content" type="button" role="tab"
+                                        aria-controls="ad-charts-content" aria-selected="false"><i
+                                            class="fas fa-map me-1"></i> Cartes</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="adDetailTabContent">
+                                <div class="tab-pane fade show active" id="ad-gen-content" role="tabpanel"
+                                    aria-labelledby="ad-gen-tab">
+                                    <h5>AD 2.2 Caractéristiques géographiques et administratives</h5>
+                                    <p class="placeholder-text">[Données sur la localisation, l'élévation,
+                                        l'exploitant...]</p>
+                                    <h5>AD 2.3 Heures d'ouverture</h5>
+                                    <p class="placeholder-text">[Horaires H24 ou spécifiques...]</p>
+                                </div>
+                                <div class="tab-pane fade" id="ad-com-content" role="tabpanel"
+                                    aria-labelledby="ad-com-tab">
+                                    <h5>AD 2.18 Installations et services de communication ATS</h5>
+                                    <p class="placeholder-text">[Tableau des fréquences TWR, APP, GND, ATIS...]</p>
+                                </div>
+                                <div class="tab-pane fade" id="ad-nav-content" role="tabpanel"
+                                    aria-labelledby="ad-nav-tab">
+                                    <h5>AD 2.19 Aides à la navigation radio et à l'atterrissage</h5>
+                                    <p class="placeholder-text">[Tableau des VOR, ILS, NDB, etc. avec fréquences, ID,
+                                        coordonnées...]</p>
+                                </div>
+                                <div class="tab-pane fade" id="ad-charts-content" role="tabpanel"
+                                    aria-labelledby="ad-charts-tab">
+                                    <h5>AD 2.24 Cartes relatives à l'aérodrome</h5>
+                                    <ul class="list-unstyled chart-list">
+                                        <li><a href="#" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>
+                                                Carte d'atterrissage AD 2 GOOY IAC RWY 01</a></li>
+                                        <li><a href="#" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>
+                                                Carte d'atterrissage AD 2 GOOY IAC RWY 19</a></li>
+                                        <li><a href="#" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>
+                                                Carte de stationnement AD 2 GOOY ADC</a></li>
+                                        <li><a href="#" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>
+                                                Carte VAC AD 2 GOOY VAC</a></li>
+                                    </ul>
+                                    <div
+                                        class="chart-placeholder mt-3 p-3 border rounded bg-light text-center text-muted">
+                                        [ Zone d'affichage de la carte (PDF/Image) sélectionnée ]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="other-section-placeholder" style="display: none;">
+                            <h4 class="content-title mb-3">Contenu de la Section [Section Name]</h4>
+                            <p class="placeholder-text">[Le contenu détaillé de la section ENR ou GEN sélectionnée
+                                apparaîtrait ici. Utilisez des tableaux, listes, et textes formatés.]</p>
+                            <pre class="bg-light p-2 border rounded">Exemple:
+ENR 4.1 AIDES RADIO A LA NAVIGATION - EN ROUTE
+===========================================
+Nom Aides | ID  | Freq   | Coordonnées     | Elev | Remarques
+----------|-----|--------|-----------------|------|----------
+DAKAR VOR | DKR | 112.70 | 144423N0172918W | 27m  | DME
+...</pre>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-aim py-3">
+        <div class="container-fluid d-flex flex-wrap justify-content-between align-items-center">
+            <div class="d-flex align-items-center mb-2 mb-md-0">
+                <img src="assets/images/asecna_logo.png" alt="Logo ASECNA" class="footer-logo me-3">
+                <small class="copyright-text">
+                    &copy; <span id="currentYear"></span> Portail AIM ASECNA
+                </small>
+            </div>
+            <div>
+                <small>
+                    <a href="#" class="footer-link ms-3">Aide</a>
+                    <a href="#" class="footer-link ms-3">Contacter Support AIM</a>
+                    <a href="https://www.asecna.aero" target="_blank" class="footer-link ms-3">Site Principal ASECNA</a>
+                    <a href="#" class="footer-link ms-3">Conditions d'Utilisation</a>
+                </small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const yearSpan = document.getElementById('currentYear');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+            // Basic JS simulation for prototype (optional)
+            // - Update "selected-country-placeholder" spans on dropdown change
+            // - Show/hide different content divs based on sidebar link clicks
+        });
+    </script>
+</body>
+
+</html>
